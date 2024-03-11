@@ -5,16 +5,26 @@ import sys
 
 # List of 50 passwords
 passwords = [
-    "1111111", "22222222", "33333333", "44444444", "55555555",
-    "6666666", "777777", "88888888", "9999999", "000000000",
-    "11111111111", "2222222222", "3333333333", "4444444444", "555555555555",
-    "666666666666", "7777777777", "8888888888", "99999999988", "000000",
-    "11122u373", "22828283383", "33838838383", "4484848", "558858585",
-    "688882", "788888", "89929922", "99928181", "1003883383",
-    "7288119", "7282919", "74738392", "747492", "838363",
-    "82910100", "83376363", "819191001", "82837737", "838291910",
-    "81928373", "838383747", "9494994", "4773828", "8392920",
-    "838292919", "838382901", "8373773", "8383839", "7484890"
+    "Alice123456", "Bob987654", "Charlie246810", "David1357911", "Emily3691215",
+    "Frank258147", "Grace753951", "Henry159753", "Ivy357159", "Jack951753",
+    "Kate753159", "Leo753123", "Mia1234567", "Noah9876543", "Olivia3691215",
+    "Peter2581478", "Quinn7539517", "Ryan1597532", "Stella3571594", "Tom9517539",
+    "Vera7531596", "Will7531234", "Zoe1234567", "Aaron9876543", "Bella3691215",
+    "Chris2581478", "Dana7539517", "Eric1597532", "Fiona3571594", "George9517539",
+    "Hannah7531596", "Ian7531234", "Julia1234567", "Kevin9876543", "Lily3691215",
+    "Mike2581478", "Nora7539517", "Owen1597532", "Penny3571594", "Quinn9517539",
+    "Rose7531596", "Sam7531234", "Tina1234567", "Victor9876543", "Wendy3691215",
+    "Xavier2581478", "Yara7539517", "Zach1597532", "Abby3571594", "Ben9517539",
+    "Cindy7531596", "Dean7531234", "Eva1234567", "Felix9876543", "Gina3691215",
+    "Hank2581478", "Ingrid7539517", "Jake1597532", "Kelly3571594", "Lisa9517539",
+    "Max7531596", "Nina7531234", "Oscar1234567", "Paula9876543", "Quinn3691215",
+    "Ray2581478", "Sarah7539517", "Tim1597532", "Uma3571594", "Vince9517539",
+    "Wendy7531596", "Xander7531234", "Yvonne1234567", "Zane9876543", "Abby3691215",
+    "Barry2581478", "Clara7539517", "Dean1597532", "Eliza3571594", "Fred9517539",
+    "Grace7531596", "Hank7531234", "Iris1234567", "Jake9876543", "Kim3691215",
+    "Luke2581478", "Mia7539517", "Nate1597532", "Olivia3571594", "Paul9517539",
+    "Rose7531596", "Sam7531234", "Tina1234567", "Victor9876543", "Wendy3691215",
+    "Xavier2581478", "Yara7539517", "Zach1597532", "Abby3571594", "Ben9517539"
 ]
 
 def print_logo():
@@ -34,10 +44,10 @@ def number_attack(victim_name, victim_number):
     # Displaying progress bar for the attack
     print("   Attack in progress:")
     for i in range(1, 11):
-        progress = f"[{'=' * i}{' ' * (10 - i)}] {10 * i}%"
+        progress = f"  [{'=' * i}{' ' * (10 - i)}] {10 * i}%"
         sys.stdout.write('\r' + progress)
         sys.stdout.flush()
-        time.sleep(1)  # Simulating 1 second
+        time.sleep(100)  # Simulating 1 second
     
     # Selecting a random password from the list
     password = random.choice(passwords)
@@ -51,7 +61,7 @@ def gmail_attack(victim_email):
     # Displaying progress bar for the attack
     print("   Attack in progress:")
     for i in range(1, 11):
-        progress = f"[{'=' * i}{' ' * (10 - i)}] {10 * i}%"
+        progress = f"  [{'=' * i}{' ' * (10 - i)}] {10 * i}%"
         sys.stdout.write('\r' + progress)
         sys.stdout.flush()
         time.sleep(1)  # Simulating 1 second
@@ -68,7 +78,7 @@ def random_attack(victim_name):
     # Displaying progress bar for the attack
     print("   Attack in progress:")
     for i in range(1, 11):
-        progress = f"[{'=' * i}{' ' * (10 - i)}] {10 * i}%"
+        progress = f"  [{'=' * i}{' ' * (10 - i)}] {10 * i}%"
         sys.stdout.write('\r' + progress)
         sys.stdout.flush()
         time.sleep(1)  # Simulating 1 second
@@ -87,7 +97,7 @@ def facebook_menu():
 
 def instagram_menu():
     print("\n\033[1;34m    Instagram Menu:")
-    print("    \033[1;32m1. \033[1;31mRandom attack")
+    print("    \033[1;32m1. \033[1;31mUrl attack")
     print("    \033[1;32m2. \033[1;31mGmail attack")
     print("    \033[1;32m3. \033[1;31mNumber attack")
 
@@ -109,10 +119,12 @@ if main_choice == '1':
     facebook_choice = input("\n     Choose option: ")
     if facebook_choice == '1':
         victim_name = input("   Enter victim's Facebook username: ")
-        random_attack(victim_name)
+        victim_link = input("   Enter victim's facebook link: ")
+        random_attack(victim_name, victim_link)
     elif facebook_choice == '2':
+        victim_name = input("   Enter victim's Facebook username: ")
         victim_email = input("   Enter victim's Gmail linked with Facebook: ")
-        gmail_attack(victim_email)
+        gmail_attack(victim_name, victim_email)
     elif facebook_choice == '3':
         victim_name = input("   Enter victim's Facebook username: ")
         victim_number = input("   Enter victim's phone number linked with Facebook: ")
